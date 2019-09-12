@@ -18,5 +18,16 @@ class Question {
         return $results;
     }
 
+    public function getQuestion($id) {
+        $this->db->query("SELECT * FROM questions WHERE id = :id");
+
+        $this->db->bind(':id', $id);
+
+        // Assign row
+        $row = $this->db->single();
+
+        return $row;
+    }
+
 }
 
