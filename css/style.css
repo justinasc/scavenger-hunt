@@ -41,7 +41,7 @@
     text-rendering: optimizeLegibility;
   }
   a.btn {
-    background: #f86ee7;
+    background: #dc9a9b;
     border-radius: 4px;
     box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.25);
     color: #ffffff;
@@ -52,7 +52,7 @@
     transition: all 0.1s 0s ease-out;
   }
   .no-touch a.btn:hover {
-    background: #f03adf;
+    background: #ec797b;
     box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
     -webkit-transform: translateY(-2px);
             transform: translateY(-2px);
@@ -60,7 +60,7 @@
   }
   .no-touch a.btn:active,
   a.btn:active {
-    background: #f03adf;
+    background: #ec797b;
     box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.25);
     -webkit-transform: translate3d(0, 1px, 0);
             transform: translate3d(0, 1px, 0);
@@ -177,7 +177,7 @@
             transform: scale(1) !important;
   }
   div.card.show div.card-title a.toggle-info {
-    background: #f86ee7 !important;
+    background: #dc9a9b !important;
   }
   div.card.show div.card-title a.toggle-info span {
     top: 15px;
@@ -200,3 +200,99 @@
     transition: all 0.3s 0.2s ease-out;
   }
   
+
+  /* Champegne CSS*/
+
+  .container {
+    position: fixed;
+    top: 85px;
+    left: 25px;
+  }
+  
+  .tap {
+    position: absolute;
+    top: -100px; left: 16px;
+    width: 20px;
+    height: 100px;
+    background: #FBD78D;
+    animation: 2s wave ease infinite;
+  }
+  
+  .glass {
+    overflow: hidden;
+    position: absolute;
+    width: 50px;
+    height: 130px;
+    border: 2px solid #FFF;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+  
+  .stand:before {
+    content: '';
+    position: absolute;
+    top: 132px; left: 25px;
+    width: 3px;
+    height: 110px;
+    background: #FFF;
+  }
+  
+  .stand:after {
+    content: '';
+    position: absolute;
+    top: 241px; left: 6px;
+    width: 40px;
+    height: 2px;
+    background: #FFF;
+  }
+  
+  .champagne {
+    position: absolute;
+    top: 120px;
+    width: 50px;
+    height: 10px;
+    background: #FBD78D;
+  }
+  
+  .bubbles {
+    position: absolute;
+    top: -3px;
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    border: 1px solid #FFF;
+  }
+  
+  .bubbles.two {
+    top: 0;
+    left: 10px;
+    
+  }
+  
+  .bubbles.three {
+    top: 5px;
+    left: 20px;
+    
+  }
+  
+  .bubbles.four {
+    top: 0;
+    left: 30px;
+    
+  }
+  
+  .bubbles.five {
+    top: 85px;
+    left: 40px;
+    animation: 10s move ease infinite;
+    opacity: 0.7;
+  }
+  
+  .bubbles.six {
+    top: 5px;
+    left: 40px;
+  }
+  
+  @keyframes move {
+    100% { top: -10px; opacity: 0; }
+  }

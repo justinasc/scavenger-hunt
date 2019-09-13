@@ -29,5 +29,18 @@ class Question {
         return $row;
     }
 
+    public function update($id, $data) {
+        $this->db->query("UPDATE questions SET file_hash =:file_hash WHERE id = $id");
+    
+        //Bind data
+        $this->db->bind(':file_hash', $data);
+
+        //Execute
+        if ($this->db->execute()){
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 

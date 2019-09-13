@@ -1,57 +1,63 @@
 <?php include 'inc/header.php';?>
 
-<?php echo 'Question?!'; ?>
-<?php echo $question->question ?>
-<?php echo $question->hint ?>
 
-<input type="file" accept="image/*">
+    <h1 class="text-center">Capture webcam image with php and jquery - ItSolutionStuff.com</h1>
+   
+    <form method="post" action="question.php?id=<?php echo $question->id; ?>">
+        <div class="row">
+            <div class="col-md-6">
+                <div id="my_camera"></div>
+                <br/>
+                <input id="hide" type=button value="Foto" onClick="take_snapshot()">
+                <input type="hidden" name="image" class="image-tag">
+            </div>
+            <div class="col-md-6">
+                <div id="results">Your captured image will appear here...</div>
+            </div>
+            <div class="col-md-12 text-center">
+                <br/>
+                <button class="btn btn-success">Submit</button>
+            </div>
+        </div>
+    </form>
 
-<video id="video" width="640" height="480" autoplay></video>
-<button id="snap">Snap Photo</button>
-<canvas id="canvas" width="640" height="480"></canvas>
-
-<script>
-// Grab elements, create settings, etc.
-var video = document.getElementById('video');
-
-// Get access to the camera!
-if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    // Not adding `{ audio: true }` since we only want video now
-    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
-        //video.src = window.URL.createObjectURL(stream);
-        video.srcObject = stream;
-        video.play();
-    });
+  
+<!-- Configure a few settings and attach camera -->
+<script language="javaScript">
+		Webcam.set({
+			width: 1280,
+			height: 720,
+			image_format: 'jpeg',
+			jpeg_quality: 1000,
+			constraints: {
+				width: { exact: 1280 },
+                height: { exact: 720 }
+                // after testing desktop webcam move to mobile front camera
+                // facingMode: {
+                //     exact: 'environment'
+                // }
+			}
+		});
+		Webcam.attach( '#my_camera' );
+  
+    function take_snapshot() {
+    // take snapshot and get image data
+    Webcam.snap( function(data_uri) {
+        console.log(data_uri);
+        // display results in page and append data to image-tag class
+        $(".image-tag").val(data_uri);
+        document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
+    } );
 }
-
-/* Legacy code below: getUserMedia 
-else if(navigator.getUserMedia) { // Standard
-    navigator.getUserMedia({ video: true }, function(stream) {
-        video.src = stream;
-        video.play();
-    }, errBack);
-} else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
-    navigator.webkitGetUserMedia({ video: true }, function(stream){
-        video.src = window.webkitURL.createObjectURL(stream);
-        video.play();
-    }, errBack);
-} else if(navigator.mozGetUserMedia) { // Mozilla-prefixed
-    navigator.mozGetUserMedia({ video: true }, function(stream){
-        video.srcObject = stream;
-        video.play();
-    }, errBack);
-}
-*/
-
-// Elements for taking the snapshot
-var canvas = document.getElementById('canvas');
-var context = canvas.getContext('2d');
-var video = document.getElementById('video');
-
-// Trigger photo take
-document.getElementById("snap").addEventListener("click", function() {
-	context.drawImage(video, 0, 0, 640, 480);
-});
 </script>
+
+<p>If you click on the "Hide" button, I will disappear.</p>
+
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+
+<input type="submit" value="submit" id="buttonId" />
+
+
 
 <?php include 'inc/footer.php';?>

@@ -42,3 +42,22 @@ $(document).ready(function(){
       
     });
   });
+
+  $(document).ready(function(){
+    $("#hide").click(function(){
+      $("#my_camera").hide();
+    });
+    $("#show").click(function(){
+      $("#my_camera").show();
+    });
+  });
+
+  // Champagne script
+
+  setTimeout(function(){
+    $(".champagne").animate({
+        "height": "+=300",
+        top: "-=100"
+    })
+}, 1000, "ease")
+
