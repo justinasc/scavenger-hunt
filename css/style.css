@@ -40,6 +40,42 @@
     font-family: 'Source Sans Pro', sans-serif;
     text-rendering: optimizeLegibility;
   }
+
+  .button-action {
+    box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.075);
+    padding: 10px 15px 20px;
+    text-align: center;
+  }
+
+  button#show, input#hide {
+    background: #dc9a9b;
+    border-radius: 4px;
+    box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+    display: inline-block;
+    padding: 6px 30px 8px;
+    position: relative;
+    text-decoration: none;
+    transition: all 0.1s 0s ease-out;
+    border-width: 0px;
+  }
+
+  .no-touch button#show:hover, , input#hide:hover {
+    background: #ec797b;
+    box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
+    -webkit-transform: translateY(-2px);
+            transform: translateY(-2px);
+    transition: all 0.25s 0s ease-out;
+  }
+
+  .no-touch button#show:active {
+    background: #ec797b;
+    box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.25);
+    -webkit-transform: translate3d(0, 1px, 0);
+            transform: translate3d(0, 1px, 0);
+    transition: all 0.025s 0s ease-out;
+  }
+
   a.btn {
     background: #dc9a9b;
     border-radius: 4px;

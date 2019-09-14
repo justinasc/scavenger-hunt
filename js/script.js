@@ -46,6 +46,7 @@ $(document).ready(function(){
   $(document).ready(function(){
     $("#hide").click(function(){
       $("#my_camera").hide();
+      $("#hide").hide();
     });
     $("#show").click(function(){
       $("#my_camera").show();
@@ -59,5 +60,8 @@ $(document).ready(function(){
         "height": "+=300",
         top: "-=100"
     })
-}, 1000, "ease")
+}, 5000, "ease");
 
+if ($("#hide").not(":visible")) { // or .is(":hidden")
+  console.log('do something');
+}

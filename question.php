@@ -28,7 +28,6 @@ if(isset($_POST['image'])) {
     }
 
 }
-//print_r($question_id);die();
 
 $template->question = $question->getQuestion($question_id);
 
