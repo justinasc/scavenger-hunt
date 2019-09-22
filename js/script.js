@@ -1,48 +1,3 @@
-$(document).ready(function(){
-    var zindex = 10;
-    
-    $("div.card").click(function(e){
-    //   e.preventDefault();
-  
-      var isShowing = false;
-  
-      if ($(this).hasClass("show")) {
-        isShowing = true
-      }
-  
-      if ($("div.cards").hasClass("showing")) {
-        // a card is already in view
-        $("div.card.show")
-          .removeClass("show");
-  
-        if (isShowing) {
-          // this card was showing - reset the grid
-          $("div.cards")
-            .removeClass("showing");
-        } else {
-          // this card isn't showing - get in with it
-          $(this)
-            .css({zIndex: zindex})
-            .addClass("show");
-  
-        }
-  
-        zindex++;
-  
-      } else {
-        // no cards in view
-        $("div.cards")
-          .addClass("showing");
-        $(this)
-          .css({zIndex:zindex})
-          .addClass("show");
-  
-        zindex++;
-      }
-      
-    });
-  });
-
   $(document).ready(function(){
     $("#hide").click(function(){
       $("#my_camera").hide();
@@ -53,6 +8,27 @@ $(document).ready(function(){
     });
   });
 
+  $(document).ready(function(){
+    $("#show-2").click(function(){
+        $('#2').css('display', 'inline-block');
+    });
+  });
+  $(document).ready(function(){
+    $("#show-3").click(function(){
+        $('#3').css('display', 'inline-block');
+    });
+  });
+  $(document).ready(function(){
+    $("#show-4").click(function(){
+        $('#4').css('display', 'inline-block');
+    });
+  });
+  $(document).ready(function(){
+    $("#show-5").click(function(){
+        $('#5').css('display', 'inline-block');
+    });
+  });
+
   // Champagne script
 
   setTimeout(function(){
@@ -60,8 +36,5 @@ $(document).ready(function(){
         "height": "+=300",
         top: "-=100"
     })
-}, 5000, "ease");
+}, 1000, "ease");
 
-if ($("#hide").not(":visible")) { // or .is(":hidden")
-  console.log('do something');
-}

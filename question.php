@@ -7,6 +7,13 @@ $template = new Template('templates/question-single.php');
 
 $question_id = isset($_GET['id']) ? $_GET['id'] : null;
 
+$question_reset = $_GET['reset'];
+if(isset($question_reset)){
+    $question->resetQuestions();
+    $question->resetQuestion();
+    redirect('index.php', 'Your job has been updated', 'success', $question_id);
+}
+
 if(isset($_POST['image'])) {
     $img = $_POST['image'];
     $folderPath = "upload/";
@@ -16,13 +23,15 @@ if(isset($_POST['image'])) {
     $image_type = $image_type_aux[1];
   
     $image_base64 = base64_decode($image_parts[1]);
-    $fileName = uniqid() . '.png';
+    $fileName = uniqid() . '.jpeg';
   
     $file = $folderPath . $fileName;
     file_put_contents($file, $image_base64);
 
     if($question->update($question_id, $fileName)) {
-        redirect('index.php', 'Your job has been updated', 'success');
+        $question_id++;
+        $question->getNextQuestion($question_id);
+        redirect('index.php', 'Your job has been updated', 'success', $question_id);
     } else {
         redirect('index.php', 'Something went wrong', 'error');
     }

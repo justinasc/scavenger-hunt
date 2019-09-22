@@ -5,7 +5,7 @@ $question = new Question;
 
 $template = new Template('templates/frontpage.php');
 
-$template->title = 'TEST';
+$template->title = 'Title';
 $template->questions = $question->getAllQuestions();
 
 echo $template;
